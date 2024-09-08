@@ -15,13 +15,14 @@ int	ft_fork(int	i, t_cmd *cmd)
 		{
 			if (i % 2 == 0)
 			{
-				dup2(cmd->pipefd[1], STDOUT_FILENO);
+				printf("qhqhqh");
+				dup2(cmd->pipefd[1], STDIN_FILENO);
 				close(cmd->pipefd[0]);
 				close(cmd->pipefd[1]);
 			}
 			else
 			{
-				dup2(cmd->pipefd[0], STDIN_FILENO);
+				dup2(cmd->pipefd[0], STDOUT_FILENO);
 				close(cmd->pipefd[1]);
 				close(cmd->pipefd[0]);
 			}
