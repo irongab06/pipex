@@ -7,7 +7,7 @@ int	find_path(t_cmd *cmd)
 	i = 0;
 	while (cmd->envp[i] != NULL)
 	{
-		if (strncmp(cmd->envp[i], "PATH=", 5) == 0)
+		if (ft_strncmp(cmd->envp[i], "PATH=", 5) == 0)
 			return (i);
 		i++;
 	}
