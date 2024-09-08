@@ -10,6 +10,16 @@ void	ft_malloc(char **buf, int len)
 	}
 }
 
+void	ft_malloc_pid(t_cmd *cmd)
+{
+	cmd->pid = malloc(sizeof(pid_t) * (cmd->argc - 1));
+	if (cmd->pid == NULL)
+	{
+		perror("error malloc pid");
+		exit (1);
+	}
+}
+
 void	ft_cpy_and_cat(char *buf, char *path, char *argv, int len)
 {
 		ft_strlcpy(buf, path, len);

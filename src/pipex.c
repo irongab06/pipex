@@ -16,13 +16,10 @@ int	find_path(t_cmd *cmd)
 
 void	find_cmd(t_cmd *cmd)
 {
-	//char **path;
-	//char *buf = NULL;
 	int	i;
 
 	i = find_path(cmd);
 	cmd->path = ft_split(cmd->envp[i] + 5, ':');
-	
 	ft_access(cmd);
 }
 
@@ -33,14 +30,10 @@ int	main(int argc, char **argv, char *envp[])
 	int	i;
 
 	ft_init_struct(argc, argv, envp, &cmd);
-	i = 1;
+	ft_malloc_pid(&cmd);
+	i = 0;
 	if (argc > 1)
-	{
-		while (i < argc)
-		{
-			find_cmd(&cmd);
-			i++;
-		}
-	}
+			ft_fork(i, &cmd);
+	free (cmd.pid);
 	return (0);
 }
