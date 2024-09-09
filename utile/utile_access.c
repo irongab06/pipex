@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utile_access.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/09 09:07:59 by gacavali          #+#    #+#             */
+/*   Updated: 2024/09/09 11:06:03 by gacavali         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "../pipex.h"
 
 void	ft_access(t_cmd *cmd)
@@ -15,7 +28,6 @@ void	ft_access(t_cmd *cmd)
 		if (access(cmd->buf, X_OK) == 0)
 		{
 			char	*execv[2];
-
 			execv[0] = cmd->temp_argv;
 			execv[1] = NULL;
 			execve(cmd->buf, execv, cmd->envp);
