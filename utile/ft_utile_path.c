@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utile_fork.c                                       :+:      :+:    :+:   */
+/*   ft_utile_path.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 09:08:29 by gacavali          #+#    #+#             */
-/*   Updated: 2024/09/09 09:08:30 by gacavali         ###   ########.fr       */
+/*   Created: 2024/09/13 08:32:11 by gacavali          #+#    #+#             */
+/*   Updated: 2024/09/13 08:32:28 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "../pipex.h"
 
-void	ft_father(t_cmd *cmd)
+void	find_path(t_cmd *cmd, char **envp)
 {
-	(void)cmd;
-	usleep(1000000);
+	int	i;
+
+	i = 0;
+	while (envp[i] != NULL)
+	{
+		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
+			break ;
+		i++;
+	}
+	cmd->cmd_path = ft_split(envp[i] + 5, ':');
 }

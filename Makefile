@@ -1,8 +1,11 @@
 NAME = pipex
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
-SRC = src/pipex.c utile/utile_access.c utile/utile_cpy_cat_malloc.c\
-utile/utile_init_variable.c src/ft_fork.c utile/utile_fork.c
+CFLAGS = -Wall -Wextra -Werror 
+SRC = src/pipex.c utile/ft_utile_init_struct.c utile/ft_utile_path.c\
+utile/ft_utile_pipe.c utile/ft_utile_free_malloc.c utile/ft_utile_pid.c\
+utile/ft_utile_error.c src/fork.c utile/ft_utile_dup.c\
+utile/ft_utile_open_close_file.c utile/ft_utile_close.c\
+utile/ft_utile_check_cmd.c src/execve.c
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 

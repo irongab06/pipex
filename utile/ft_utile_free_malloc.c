@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utile_cpy_cat_malloc.c                             :+:      :+:    :+:   */
+/*   ft_utile_free_malloc.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 09:08:23 by gacavali          #+#    #+#             */
-/*   Updated: 2024/09/09 09:08:25 by gacavali         ###   ########.fr       */
+/*   Created: 2024/09/13 08:40:33 by gacavali          #+#    #+#             */
+/*   Updated: 2024/09/13 15:12:33 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "../pipex.h"
+
+void	ft_free_pipe(t_cmd *cmd)
+{
+	int	i;
+
+	i = 0;
+	if (cmd->pipefd != NULL)
+	{
+		while (i <= cmd->pipelen)
+		{
+			free(cmd->pipefd[i]);
+			cmd->pipefd[i] = NULL; //ajoue par rapport a l ancien code;
+			i++;
+		}
+		free(cmd->pipefd);
+		cmd->pipefd = NULL;
+	}
+}
 
 void	ft_malloc(char **buf, int len)
 {
@@ -20,23 +36,6 @@ void	ft_malloc(char **buf, int len)
 	if (*buf == NULL)
 	{
 		perror("malloc error");
-		exit (1);
+		return ;
 	}
-}
-
-void	ft_malloc_pid(t_cmd *cmd)
-{
-	cmd->pid = malloc(sizeof(pid_t) * (cmd->argc - 1));
-	if (cmd->pid == NULL)
-	{
-		perror("error malloc pid");
-		exit (1);
-	}
-}
-
-void	ft_cpy_and_cat(char *buf, char *path, char *argv, int len)
-{
-		ft_strlcpy(buf, path, len);
-		ft_strlcat(buf, "/", len);
-		ft_strlcat(buf, argv, len);
 }
