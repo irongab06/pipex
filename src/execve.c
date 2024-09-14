@@ -15,7 +15,7 @@
 void	ft_execve(t_cmd *cmd, char **argv, char **envp, int i)
 {
 
-	cmd->cmd_execve = ft_split(argv[i + 2], ' ');
+	cmd->cmd_execve = ft_split(argv[i + cmd->shift], ' '); //
 	if (cmd->cmd_execve == NULL)
 	{
 		perror("ft_split failed");

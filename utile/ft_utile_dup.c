@@ -23,7 +23,7 @@ void	ft_dup(t_cmd *cmd, int i)
 }
 
 void	ft_dup_pipe_first_cmd(t_cmd *cmd, int i)
-{
+{	
 	if (dup2(cmd->fd_infile, STDIN_FILENO) == -1)
 	{
 		perror("dup2 failed");
@@ -31,6 +31,7 @@ void	ft_dup_pipe_first_cmd(t_cmd *cmd, int i)
 	}
 	if (dup2(cmd->pipefd[i][1], STDOUT_FILENO) == -1)
 	{
+		
 		perror("dup2 failed");
 		exit (EXIT_FAILURE);
 	}

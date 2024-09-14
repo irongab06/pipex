@@ -27,6 +27,8 @@ void	ft_close_first_pipe(t_cmd *cmd, int i)
 	close(cmd->pipefd[i][0]);
 	close(cmd->fd_infile);
 	close(cmd->pipefd[i][1]);
+	if (cmd->index_here_doc == 1)
+		unlink("limiter.tmp");
 }
 
 void	ft_close_middle_pipe(t_cmd *cmd, int i)

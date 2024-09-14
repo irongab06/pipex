@@ -31,7 +31,9 @@ typedef struct s_cmd
 	int		**pipefd;
 	int		fd_infile;
 	int		fd_outfile;
+	int		index_here_doc;
 	int		last_argv;
+	int		shift;
 	char	**cmd_path;
 	char	**cmd_execve;
 	char	*path_buf;
@@ -58,6 +60,8 @@ void	ft_cpy_and_cat(char *buf, char *path, char *argv, int len);
 void	ft_execve(t_cmd *cmd, char **argv, char **envp, int i);
 void	ft_malloc(char **buf, int len);
 void	ft_close_father(t_cmd *cmd, int i);
+void	here_doc(t_cmd *cmd, char **argv);
+void	check_here_doc(t_cmd *cmd, char **argv);
 
 int	ft_init_pipefd(t_cmd *cmd);
 int	ft_active_pipe(t_cmd *cmd);

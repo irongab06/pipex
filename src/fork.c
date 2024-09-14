@@ -47,7 +47,7 @@ int	ft_fork(t_cmd *cmd, char **argv, char **envp)
 	while (i <= cmd->pipelen)
 	{
 		waitpid(cmd->pid[i], &status, 0);
-		debug(ft_itoa(status));
+		//debug(ft_itoa(status));
 		i++;
 	}	
 	return (WEXITSTATUS(status));

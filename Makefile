@@ -5,7 +5,7 @@ SRC = src/pipex.c utile/ft_utile_init_struct.c utile/ft_utile_path.c\
 utile/ft_utile_pipe.c utile/ft_utile_free_malloc.c utile/ft_utile_pid.c\
 utile/ft_utile_error.c src/fork.c utile/ft_utile_dup.c\
 utile/ft_utile_open_close_file.c utile/ft_utile_close.c\
-utile/ft_utile_check_cmd.c src/execve.c
+utile/ft_utile_check_cmd.c src/execve.c src/here_doc.c
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 

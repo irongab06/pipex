@@ -26,8 +26,10 @@ int	main(int argc, char **argv, char **envp)
 	int	i;
 
 	i = 0;
+	
 	if (argc >= 5)
 	{
+		check_here_doc(&cmd, argv);
 		ft_init_struct(&cmd, argc);
 		find_path(&cmd, envp);
 		i = ft_init_and_error(&cmd, i);

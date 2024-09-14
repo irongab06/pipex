@@ -1,5 +1,5 @@
 {
-	"files.associations": {
-		"pipex.h": "c"
+	"files.exclude": {
+		"**/*.o": true
 	}
 }

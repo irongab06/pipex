@@ -14,7 +14,18 @@
 
 void	ft_init_struct(t_cmd *cmd, int argc)
 {
-	cmd->pipelen = (argc - 4);
+	if (cmd->index_here_doc == 0)
+	{
+		cmd->pipelen = (argc - 4);
+		cmd->shift = 2;
+
+	}	
+	else
+	{
+		debug("cmd ::::::");
+		cmd->pipelen = (argc - 5);
+		cmd->shift = 3;
+	}
 	cmd->fd_infile = -1;
 	cmd->fd_outfile = -1;
 	cmd->last_argv = (argc -1);
