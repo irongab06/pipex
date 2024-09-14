@@ -17,9 +17,9 @@ void	ft_check_cmd(t_cmd *cmd, char **argv, int i)
 	int	j;
 
 	j = 0;
-	if (access(argv[i + cmd->shift], X_OK) == 0) //
+	if (access(argv[i + cmd->shift], X_OK) == 0)
 	{
-		cmd->path_buf = argv[i + cmd->shift]; //
+		cmd->path_buf = argv[i + cmd->shift];
 		return ;
 	}
 	while (cmd->cmd_path[j] != NULL)
@@ -34,20 +34,19 @@ void	ft_check_cmd(t_cmd *cmd, char **argv, int i)
 		}
 		j++;
 	}
-	write(2, argv[i + cmd->shift], ft_strlen(argv[i + cmd->shift])); //
+	write(2, argv[i + cmd->shift], ft_strlen(argv[i + cmd->shift]));
 	write(2, ": command not found\n", 21);
-	//ft_free(cmd);
+	ft_free(cmd);
 	exit (127);
 }
-
 
 void	ft_init_buf(t_cmd *cmd, char **argv, int i, int j)
 {
 	int	len;
 
-	len = ft_strlen(cmd->cmd_path[j]) + ft_strlen(argv[i + cmd->shift]) + 2; //
-	ft_malloc(&cmd->path_buf, len); //&cmd->path_buf
-	ft_cpy_and_cat(cmd->path_buf, cmd->cmd_path[j], argv[i + cmd->shift], len); //
+	len = ft_strlen(cmd->cmd_path[j]) + ft_strlen(argv[i + cmd->shift]) + 2;
+	ft_malloc(cmd, len);
+	ft_cpy_and_cat(cmd->path_buf, cmd->cmd_path[j], argv[i + cmd->shift], len);
 }
 
 void	ft_cpy_and_cat(char *buf, char *path, char *argv, int len)

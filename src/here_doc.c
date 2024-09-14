@@ -33,10 +33,8 @@ void	here_doc(t_cmd *cmd, char **argv)
 		line = get_next_line(STDIN_FILENO);
 		line_len = ft_strlen(line);
 		if (ft_strncmp(line, argv[2], (line_len - 1)) == 0)
-			break;
+			break ;
 		write(cmd->fd_infile, line, ft_strlen(line));
-		
-
 		free(line);
 	}
 	free(line);

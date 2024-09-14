@@ -23,7 +23,7 @@ void	ft_dup(t_cmd *cmd, int i)
 }
 
 void	ft_dup_pipe_first_cmd(t_cmd *cmd, int i)
-{	
+{
 	if (dup2(cmd->fd_infile, STDIN_FILENO) == -1)
 	{
 		perror("dup2 failed");
@@ -31,39 +31,19 @@ void	ft_dup_pipe_first_cmd(t_cmd *cmd, int i)
 	}
 	if (dup2(cmd->pipefd[i][1], STDOUT_FILENO) == -1)
 	{
-		
 		perror("dup2 failed");
 		exit (EXIT_FAILURE);
 	}
-
-	//-------
-
-	// close(cmd->pipefd[i][0]);
-	// close(cmd->fd_infile);
-	// close(cmd->pipefd[i][1]);
 }
 
 void	ft_dup_pipe_middle_cmd(t_cmd *cmd, int i)
 {
 	dup2(cmd->pipefd[i - 1][0], STDIN_FILENO);
 	dup2(cmd->pipefd[i][1], STDOUT_FILENO);
-
-	//--------
-
-	// close(cmd->pipefd[i - 1][1]);
-	// close(cmd->pipefd[i][0]);
-	// close(cmd->pipefd[i - 1][0]);
-	// close(cmd->pipefd[i][1]);
 }
 
 void	ft_dup_pipe_last_cmd(t_cmd *cmd, int i)
 {
 	dup2(cmd->pipefd[i - 1][0], STDIN_FILENO);
 	dup2(cmd->fd_outfile, STDOUT_FILENO);
-
-	//-------
-	
-	// close(cmd->pipefd[i - 1][1]);
-	// close(cmd->pipefd[i - 1][0]);
-	// close(cmd->fd_outfile);
 }

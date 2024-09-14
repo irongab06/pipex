@@ -14,17 +14,17 @@
 
 void	ft_execve(t_cmd *cmd, char **argv, char **envp, int i)
 {
-
-	cmd->cmd_execve = ft_split(argv[i + cmd->shift], ' '); //
+	cmd->cmd_execve = ft_split(argv[i + cmd->shift], ' ');
 	if (cmd->cmd_execve == NULL)
 	{
 		perror("ft_split failed");
+		ft_free(cmd);
 		exit (EXIT_FAILURE);
 	}
 	if (execve(cmd->path_buf, cmd->cmd_execve, envp) == -1)
 	{
 		perror("execve failed");
-		//free_execve;
+		ft_free(cmd);
 		exit(EXIT_FAILURE);
 	}
 }

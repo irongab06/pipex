@@ -18,11 +18,9 @@ void	ft_init_struct(t_cmd *cmd, int argc)
 	{
 		cmd->pipelen = (argc - 4);
 		cmd->shift = 2;
-
-	}	
+	}
 	else
 	{
-		debug("cmd ::::::");
 		cmd->pipelen = (argc - 5);
 		cmd->shift = 3;
 	}
@@ -33,4 +31,3 @@ void	ft_init_struct(t_cmd *cmd, int argc)
 	cmd->path_buf = NULL;
 	cmd->cmd_execve = NULL;
 }
-
