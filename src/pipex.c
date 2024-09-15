@@ -18,15 +18,18 @@ int	main(int argc, char **argv, char **envp)
 	int		i;
 
 	i = 0;
-	if (argc == 5)
+	ft_printf("bonus %i\n", BONUS);
+	if (((!BONUS && argc != 5) || (BONUS && argc < 5)))
 	{
-		check_here_doc(&cmd, argv);
-		ft_init_struct(&cmd, argc);
-		find_path(&cmd, envp);
-		i = ft_init_and_error(&cmd, i);
-		if (i == 0)
-			return (ft_fork(&cmd, argv, envp));
-		ft_free(&cmd);
+		ft_printf("wrong number of arguments !!!!!\n");
+		return (1);
 	}
+	check_here_doc(&cmd, argv);
+	ft_init_struct(&cmd, argc);
+	find_path(&cmd, envp);
+	i = ft_init_and_error(&cmd, i);
+	if (i == 0)
+		return (ft_fork(&cmd, argv, envp));
+	ft_free(&cmd);
 	return (1);
 }

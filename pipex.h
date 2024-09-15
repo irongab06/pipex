@@ -22,6 +22,10 @@
 # include <unistd.h>
 # include "libft/libft.h"
 
+# ifndef BONUS
+#  define BONUS 0
+# endif
+
 typedef struct s_cmd
 {
 	pid_t	*pid;
