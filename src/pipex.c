@@ -18,7 +18,6 @@ int	main(int argc, char **argv, char **envp)
 	int		i;
 
 	i = 0;
-	ft_printf("bonus %i\n", BONUS);
 	if (((!BONUS && argc != 5) || (BONUS && argc < 5)))
 	{
 		ft_printf("wrong number of arguments !!!!!\n");
