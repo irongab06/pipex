@@ -6,7 +6,7 @@
 /*   By: gacavali <gacavali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 08:16:12 by gacavali          #+#    #+#             */
-/*   Updated: 2024/09/16 08:16:21 by gacavali         ###   ########.fr       */
+/*   Updated: 2024/09/16 13:31:39 by gacavali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	here_doc(t_cmd *cmd, char **argv)
 {
 	char	*line;
 	int		line_len;
-
+ 
 	line_len = 0;
 	line = NULL;
 	cmd->fd_infile = open("limiter.tmp", O_WRONLY | O_CREAT | O_APPEND, 0644);
